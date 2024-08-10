@@ -50,6 +50,8 @@ export default function ItemCard({name, quantity, properties, coverImage, setQua
                                             <MenuItem value='Units'>Units</MenuItem>
                                             <MenuItem value='g'>g</MenuItem>
                                             <MenuItem value='mL'>mL</MenuItem>
+                                            <MenuItem value='cups'>cups</MenuItem>
+                                            <MenuItem value='tbsp'>tbsp</MenuItem>
                                         </Select>
                                     </FormControl>
                                 </Box>
