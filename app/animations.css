@@ -1,0 +1,44 @@
+.animationParent:hover .fadeInAnimation{
+    opacity: 1;
+}
+
+.animationParent:hover .shiftAnimation{
+    transform: translateX(10px) translateY(10px);
+}
+
+.backgroundShiftAnimation{
+    background-size: 150% 150%;
+    background-position: 0% 0%;
+}
+
+.animationParent:hover .backgroundShiftAnimation{
+    background-position: 100% 100%;
+}
+
+.animationParent:hover .colorAnimation{
+    filter: grayscale(0%);
+}
+
+.animationParent:hover .opacityAnimation{
+    opacity: 1;
+}
+
+.imagePlaceholder{
+    background: linear-gradient(to right, #2ef5ca 0%, #00b991 50%, #2ef5ca 100%);
+    background-size: 200% 200%;
+    animation: backgroundToFro 1s infinite linear;
+}
+
+@keyframes backgroundToFro{
+    0%{
+        background-position: 0% 0%;
+    }
+    100%{
+        background-position: 200% 200%;
+    }
+}
+
+div:has(.imageLoaded) .imagePlaceholder{
+    opacity: 0;
+}
+

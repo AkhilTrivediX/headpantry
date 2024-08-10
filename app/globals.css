@@ -1,11 +1,17 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Zain:wght@200;300;400;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --headBlueGradient: radial-gradient(57.33% 34.07% at 17.73% 74.75%,#3d56f0 0,rgba(16,22,60,0) 100%),radial-gradient(67.06% 66.47% at 75.21% 20.96%,#3d56f0 18.75%,#202c79 100%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,4 +36,12 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+*{
+  transition: all 300ms ease;
+}
+
+.headGradientBG{
+  background: var(--headBlueGradient);
 }
