@@ -162,7 +162,7 @@ export default function Pantry({pantryId, backToList}: {pantryId: string, backTo
                         callback: (output:any)=>{
                             setItems((prev: any)=>{let updated = [...prev]; updated[index as number] = output; return updated;})
                         }
-                    })}}/>:null)}
+                    })}} deleteThisItem={()=>{setItems((prev: any)=>{let updated = [...prev]; updated.splice(index as number, 1); return updated;})}}/>:null)}
                 )}
                 <Box width={300} height={170} display='flex' justifyContent={'center'} alignItems={'center'} borderRadius={4} sx={{border:'2px solid rgba(255,255,255,0.2)', borderStyle:'dashed',cursor:'pointer', '&:hover':{borderColor:theme.palette.primary.main}, '&:hover .boxChild':{color:theme.palette.primary.main, opacity: 1}}} flexDirection={'column'} gap={1}>
                     <Box display={'flex'} alignItems={'center'} gap={1} border={'2px solid rgba(255,255,255,0.2)'} borderRadius={4} p={1} sx={{opacity:0.8, '&:hover':{borderColor:theme.palette.primary.main}}} onClick={()=>{showModal()}}>

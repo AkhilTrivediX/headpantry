@@ -3,7 +3,7 @@ import { BorderColor, Delete, Edit, KeyboardArrowDown, KeyboardArrowUp, Opacity,
 import { alpha, Box, Divider, FormControl, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
 import Image from "next/image";
 
-export default function ItemCard({name, quantity, properties, coverImage, setQuantity, callEditModal }:{name:string, quantity:{value:number, unit:string}, properties:any, coverImage:string, setQuantity:any, callEditModal:any}){
+export default function ItemCard({name, quantity, properties, coverImage, setQuantity, callEditModal, deleteThisItem }:{name:string, quantity:{value:number, unit:string}, properties:any, coverImage:string, setQuantity:any, callEditModal:any, deleteThisItem:any}){
     return(
         <div className="MuiBox-root animationParent relative rounded-[14px] overflow-hidden">
                     <div className='border-[2px] absolute h-full w-full top-0 left-0 rounded-[14px] opacity-0 fadeInAnimation shiftAnimation ' style={{borderColor:theme.palette.primary.main}}></div>
@@ -56,7 +56,7 @@ export default function ItemCard({name, quantity, properties, coverImage, setQua
                             </Box>
                             <div className="flex items-center justify-around gap-2 opacity-0 fadeInAnimation">
                                 <Box p={1} border={'2px solid rgba(255,255,255,0)'} borderRadius={4} sx={{opacity:0.8, '&:hover':{borderColor:alpha(theme.palette.primary.main,0.8), cursor:'pointer', color:theme.palette.primary.main, backgroundColor: alpha(theme.palette.secondary.dark,0.6)}}} onClick={callEditModal}><Edit fontSize="small"/></Box>
-                                <Box p={1} border={'2px solid rgba(255,255,255,0)'} borderRadius={4} sx={{opacity:0.8, '&:hover':{borderColor:'rgba(255,0,0,0.8)', cursor:'pointer', color:'red', backgroundColor: alpha(theme.palette.secondary.dark,0.6)}}}><Delete fontSize="small"/></Box>
+                                <Box p={1} border={'2px solid rgba(255,255,255,0)'} borderRadius={4} sx={{opacity:0.8, '&:hover':{borderColor:'rgba(255,0,0,0.8)', cursor:'pointer', color:'red', backgroundColor: alpha(theme.palette.secondary.dark,0.6)}}}><Delete fontSize="small" onClick={deleteThisItem}/></Box>
                             </div>
                         </Box>
                         {properties.length>0?<Box mt={0.5} display={'flex'} gap={1}>

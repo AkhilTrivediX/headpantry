@@ -27,6 +27,7 @@
     background: linear-gradient(to right, #2ef5ca 0%, #00b991 50%, #2ef5ca 100%);
     background-size: 200% 200%;
     animation: backgroundToFro 1s infinite linear;
+    opacity: 0;
 }
 
 @keyframes backgroundToFro{
