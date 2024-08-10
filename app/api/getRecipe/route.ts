@@ -19,7 +19,7 @@ export async function GET(request: Request) {
     switch(requestType){
         case 'getRecipes':
             const recipes = await getRecipesCompletion(ingredients);
-            console.log(recipes);
+            //console.log(recipes);
             return Response.json({dishes: JSON.parse(recipes!).dishes});
         case 'generateRecipe':
             const recipeName = searchParams.get('recipeName')!;

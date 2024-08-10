@@ -36,7 +36,7 @@ export default function FollowingBlob()
     {
         await new Promise((resolve)=>setTimeout(resolve, 200))
         setBlobPosition({x:mousePosition.x, y:mousePosition.y})
-        console.log('Moved Blobs')
+        //console.log('Moved Blobs')
     }
     return(
         <>

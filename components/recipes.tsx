@@ -28,7 +28,7 @@ export default function Recipes({showError, pantryId}:{showError:Function, pantr
             loadingRef.style.opacity = '1';
         }
         let loadingTimeout = startLoadingVisual();
-        console.log('Got here', pantryData.data[pantryId].items[0].quantity.value)
+        //console.log('Got here', pantryData.data[pantryId].items[0].quantity.value)
         if(!pantryData || !pantryData.data || !pantryData.data[pantryId].items){
             showError('Pantry is loading. Please Wait!');
             return;
@@ -40,7 +40,7 @@ export default function Recipes({showError, pantryId}:{showError:Function, pantr
         const ingredients = pantryData.data[pantryId].items.map((item:any) => (item.name+' : '+item.quantity.value+' '+item.quantity.unit));
         const recipes = await fetch(`/api/getRecipe?requestType=getRecipes&ingredients=${ingredients}`);
         const dishes = (await recipes.json())
-        console.log(dishes.dishes)
+        //console.log(dishes.dishes)
         setRecipes(dishes.dishes || []);
         clearTimeout(loadingTimeout);
         if(loadingRef) loadingRef.style.width = '100%';
@@ -52,7 +52,7 @@ export default function Recipes({showError, pantryId}:{showError:Function, pantr
         return setTimeout(()=>{
             let loadingRef = dishesLoadingRef.current;
             if(loadingRef){
-                console.log('Updating Width')
+                //console.log('Updating Width')
                 let oldPer = parseFloat(loadingRef.style.width.split('%')[0]);
                 loadingRef.style.width = (oldPer+(100-oldPer)/10).toString()+'%';
                 if(oldPer<90) return startLoadingVisual();
@@ -69,7 +69,7 @@ export default function Recipes({showError, pantryId}:{showError:Function, pantr
 
     if(mode != -1)
     {
-        console.log(recipes[mode])
+        //console.log(recipes[mode])
         return (
             <Box display='flex' flexDirection={'column'} borderLeft={'1px solid rgba(255,255,255,0.2)'} width={0.4} height={1} padding={2} sx={{opacity:0.8, overflowY:'scroll'}} position={'relative'}>
                 <Box display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
@@ -126,7 +126,7 @@ export default function Recipes({showError, pantryId}:{showError:Function, pantr
         if(generatedRecipe[mode] && !force) return;
         const res = await fetch(`/api/getRecipe?requestType=generateRecipe&ingredients=${(recipes[mode] as any).ingredients.map((ingredient:any) => (ingredient.name+' : '+ingredient.quantity))}&recipeName=${(recipes[mode] as any).name}&tools=${(recipes[mode] as any).tools.join(',')}&prep_time=${(recipes[mode] as any).prep_time}`);
         if(!res.body){
-            console.log('No body in generation Response!');
+            //console.log('No body in generation Response!');
             return;
         }
 
@@ -145,7 +145,7 @@ export default function Recipes({showError, pantryId}:{showError:Function, pantr
                 setGeneratedRecipe(oldGR);
             }
         }
-        console.log('Complete Generation :', generation)
+        //console.log('Complete Generation :', generation)
     }
 
     async function getToolImgs(){
@@ -155,7 +155,7 @@ export default function Recipes({showError, pantryId}:{showError:Function, pantr
                 oldTI[(recipes[mode] as any).tools[i]] = await fetch(`/api/getstock?stockQuery=${(recipes[mode] as any).tools[i]}&count=1`).then(photosRes=>photosRes.json().then(photos=>photos.photos.photos[0].src.original))
             }
         }
-        console.log('Tool Imgs: ', oldTI);
+        //('Tool Imgs: ', oldTI);
         setToolImgs(oldTI);
     }
 
