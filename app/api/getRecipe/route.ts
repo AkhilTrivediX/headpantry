@@ -1,6 +1,4 @@
 import Groq from "groq-sdk";
-import { sleep } from "groq-sdk/core.mjs";
-import { NextResponse } from "next/server";
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 export async function GET(request: Request) {
